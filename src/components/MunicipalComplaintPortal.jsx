@@ -1,0 +1,181 @@
+export default function MunicipalComplaintPortal() {
+  const complaints = [
+    {
+      id: 1,
+      name: "mahendhar",
+      area: "Hyderabad",
+      issue: "Drainage water overflow near main road",
+      status: "Pending",
+      image:
+        "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1200&auto=format&fit=crop",
+    },
+    {
+      id: 2,
+      name: "Sita",
+      area: "Secunderabad",
+      issue: "Waste blockage causing bad smell",
+      status: "In Progress",
+      image:
+        "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop",
+    },
+  ];
+
+  return (
+    <div className="min-h-screen bg-gray-100 p-6">
+      <div className="max-w-7xl mx-auto">
+        <div className="bg-blue-700 text-white rounded-3xl p-8 shadow-lg mb-8">
+          <h1 className="text-4xl font-bold mb-3">
+            Municipal Drainage Complaint Portal
+          </h1>
+          <p className="text-lg">
+            Citizens can report drainage and waste problems with photos.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="bg-white rounded-3xl shadow-lg p-6">
+            <h2 className="text-2xl font-semibold mb-6 text-blue-700">
+              Submit Complaint
+            </h2>
+
+            <form className="space-y-5">
+              <div>
+                <label className="block text-sm font-medium mb-2">
+                  Full Name
+                </label>
+                <input
+                  type="text"
+                  placeholder="Enter your name"
+                  className="w-full border rounded-xl p-3"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium mb-2">
+                  Mobile Number
+                </label>
+                <input
+                  type="tel"
+                  placeholder="Enter mobile number"
+                  className="w-full border rounded-xl p-3"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium mb-2">
+                  Area / Location
+                </label>
+                <input
+                  type="text"
+                  placeholder="Enter area"
+                  className="w-full border rounded-xl p-3"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium mb-2">
+                  Problem Description
+                </label>
+                <textarea
+                  placeholder="Describe the drainage or waste problem"
+                  rows="4"
+                  className="w-full border rounded-xl p-3"
+                ></textarea>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium mb-2">
+                  Upload Problem Photo
+                </label>
+                <input
+                  type="file"
+                  className="w-full border rounded-xl p-3 bg-white"
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="bg-blue-700 hover:bg-blue-800 text-white px-6 py-3 rounded-2xl font-semibold shadow-md"
+              >
+                Submit Complaint
+              </button>
+            </form>
+          </div>
+
+          <div className="bg-white rounded-3xl shadow-lg p-6">
+            <h2 className="text-2xl font-semibold mb-6 text-blue-700">
+              Complaints Dashboard
+            </h2>
+
+            <div className="space-y-6">
+              {complaints.map((complaint) => (
+                <div
+                  key={complaint.id}
+                  className="border rounded-2xl overflow-hidden shadow-sm"
+                >
+                  <img
+                    src={complaint.image}
+                    alt="Complaint"
+                    className="w-full h-52 object-cover"
+                  />
+
+                  <div className="p-5">
+                    <div className="flex items-center justify-between mb-3">
+                      <h3 className="text-xl font-bold">
+                        {complaint.issue}
+                      </h3>
+
+                      <span className="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium">
+                        {complaint.status}
+                      </span>
+                    </div>
+
+                    <p className="text-gray-600 mb-2">
+                      <strong>Citizen:</strong> {complaint.name}
+                    </p>
+
+                    <p className="text-gray-600">
+                      <strong>Location:</strong> {complaint.area}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-white rounded-3xl shadow-lg p-6 mt-10">
+          <h2 className="text-2xl font-semibold mb-4 text-blue-700">
+            Features Included
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700">
+            <div className="border rounded-2xl p-4">
+              ✔ Citizen complaint registration
+            </div>
+
+            <div className="border rounded-2xl p-4">
+              ✔ Photo upload for drainage issues
+            </div>
+
+            <div className="border rounded-2xl p-4">
+              ✔ Municipal officer dashboard
+            </div>
+
+            <div className="border rounded-2xl p-4">
+              ✔ Complaint status tracking
+            </div>
+
+            <div className="border rounded-2xl p-4">
+              ✔ Waste management monitoring
+            </div>
+
+            <div className="border rounded-2xl p-4">
+              ✔ Responsive mobile-friendly design
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
